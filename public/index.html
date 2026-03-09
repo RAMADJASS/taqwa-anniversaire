@@ -101,6 +101,62 @@ text-align:center;
 padding:20px;
 }
 
+.hero{
+height:100vh;
+background:linear-gradient(135deg,#4b0082,#7b2cbf,#c77dff);
+background-size:400% 400%;
+animation:gradientMove 10s ease infinite;
+position:relative;
+overflow:hidden;
+}
+
+@keyframes gradientMove{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
+}
+
+.glow-text{
+text-shadow:
+0 0 10px #fff,
+0 0 20px #c77dff,
+0 0 40px #9d4edd;
+}
+
+.romantic-text{
+font-size:1.3rem;
+opacity:0.9;
+}
+
+.btn-love{
+background:#c77dff;
+border:none;
+padding:15px 35px;
+font-size:1.2rem;
+border-radius:40px;
+transition:0.4s;
+box-shadow:0 10px 30px rgba(0,0,0,0.3);
+}
+
+.btn-love:hover{
+transform:scale(1.1);
+background:#9d4edd;
+}
+
+.star{
+position:fixed;
+top:-20px;
+animation:fall 5s linear forwards;
+pointer-events:none;
+}
+
+@keyframes fall{
+to{
+transform:translateY(110vh);
+opacity:0;
+}
+}
+
 </style>
 </head>
 
@@ -119,13 +175,24 @@ Ouvrir ton cadeau 🎁
 </div>
 
 <!-- HERO -->
-<section class="hero">
+<section class="hero d-flex align-items-center text-center text-white">
 
-<h1>Joyeux anniversaire Taqwa 🎂</h1>
+<div class="container">
 
-<p>Une personne extraordinaire fête ses 22 ans aujourd’hui 💜</p>
+<h1 class="display-3 fw-bold glow-text">
+Joyeux anniversaire Taqwa 💜
+</h1>
 
-<div id="countdown" class="countdown"></div>
+<p class="lead mt-3 romantic-text">
+Aujourd'hui une étoile est née il y a 22 ans ✨  
+et elle illumine ma vie chaque jour.
+</p>
+
+<button id="openGift" class="btn btn-love mt-4">
+🎁 Ouvrir ton cadeau
+</button>
+
+</div>
 
 </section>
 
@@ -225,6 +292,13 @@ Ouvrir ton cadeau 🎁
 
 </section>
 
+<section class="container text-center my-5">
+
+<h2 class="text-purple mb-4">Une petite lettre pour toi 💌</h2>
+
+<p id="loveMessage"></p>
+
+</section>
 
 <!-- ANNIVERSAIRE -->
 <section class="hero">
@@ -371,5 +445,54 @@ days+"j "+hours+"h "+minutes+"m "+seconds+"s";
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
+<script>
+
+function createStar(){
+
+const star=document.createElement("div");
+
+star.innerHTML="✨";
+
+star.classList.add("star");
+
+star.style.left=Math.random()*100+"vw";
+
+star.style.fontSize=Math.random()*20+10+"px";
+
+document.body.appendChild(star);
+
+setTimeout(()=>{
+star.remove();
+},5000)
+
+}
+
+setInterval(createStar,800)
+
+</script>
+
+<script>
+
+const text="Taqwa, depuis que tu es entrée dans ma vie, chaque jour est plus beau. Ton sourire illumine mon monde et ton amour rend tout magique. Aujourd'hui je célèbre tes 22 ans, mais surtout la chance incroyable que j'ai de t'avoir.";
+
+let i=0;
+
+function typeWriter(){
+
+if(i<text.length){
+
+document.getElementById("loveMessage").innerHTML+=text.charAt(i);
+
+i++;
+
+setTimeout(typeWriter,40);
+
+}
+
+}
+
+typeWriter();
+
+</script>
 </body>
 </html>
