@@ -177,10 +177,7 @@ Fait avec ❤️ pour Taqwa – 22 ans 🎂
 </footer>
 
 
-<!-- MUSIQUE -->
-<audio id="music" loop>
-<source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_115b9bce68.mp3?filename=romantic-love-112199.mp3">
-</audio>
+
 
 
 <!-- CONFETTIS -->
