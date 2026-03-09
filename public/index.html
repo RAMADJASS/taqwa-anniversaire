@@ -101,6 +101,63 @@ text-align:center;
 padding:20px;
 }
 
+.hero{
+display:flex;
+justify-content:center;
+align-items:center;
+height:90vh;
+background:linear-gradient(135deg,#4b0082,#7b2cbf,#c77dff);
+text-align:center;
+padding:20px;
+}
+
+.hero-box{
+background:rgba(255,255,255,0.08);
+backdrop-filter:blur(10px);
+padding:60px 40px;
+border-radius:35px;
+max-width:700px;
+box-shadow:0 20px 60px rgba(0,0,0,0.3);
+}
+
+.hero h1{
+font-size:3rem;
+color:white;
+margin-bottom:20px;
+text-shadow:0 0 15px rgba(255,255,255,0.4);
+}
+
+.hero-text{
+color:white;
+font-size:1.4rem;
+opacity:0.9;
+}
+
+.age{
+color:#ffd6ff;
+font-weight:bold;
+font-size:1.6rem;
+}
+
+.countdown{
+margin-top:25px;
+font-size:1.8rem;
+color:white;
+font-weight:bold;
+}
+
+.hero-hearts{
+margin-top:20px;
+font-size:1.5rem;
+animation:floatHearts 3s infinite alternate;
+}
+
+@keyframes floatHearts{
+
+0%{transform:translateY(0);}
+100%{transform:translateY(-10px);}
+
+}
 </style>
 </head>
 
@@ -118,14 +175,23 @@ Ouvrir ton cadeau 🎁
 </div>
 </div>
 
-<!-- HERO -->
 <section class="hero">
 
-<h1>Joyeux anniversaire Taqwa 🎂</h1>
+<div class="hero-box">
 
-<p>Une personne extraordinaire fête ses 22 ans aujourd’hui 💜</p>
+<h1>💜 Joyeux anniversaire Taqwa 🎂</h1>
+
+<p class="hero-text">
+Aujourd’hui une personne incroyable fête ses <span class="age">22 ans</span> 💜
+</p>
 
 <div id="countdown" class="countdown"></div>
+
+<div class="hero-hearts">
+💜 💜 💜
+</div>
+
+</div>
 
 </section>
 
