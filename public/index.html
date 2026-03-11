@@ -245,11 +245,57 @@ transform:rotate(-2deg);
 .col-md-4:nth-child(6) .memory-card{
 transform:rotate(3deg);
 }
+
+.stars{
+position:fixed;
+width:100%;
+height:100%;
+top:0;
+left:0;
+pointer-events:none;
+background:url("https://www.transparenttextures.com/patterns/stardust.png");
+opacity:0.25;
+animation:starsMove 60s linear infinite;
+}
+
+@keyframes starsMove{
+from{background-position:0 0;}
+to{background-position:1000px 1000px;}
+}
+
+.memory-card img{
+cursor:pointer;
+transition:0.4s;
+}
+
+.memory-card img:hover{
+transform:scale(1.05);
+}
+
+#photoModal{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.9);
+display:none;
+justify-content:center;
+align-items:center;
+z-index:9999;
+}
+
+#photoModal img{
+max-width:90%;
+max-height:90%;
+border-radius:20px;
+box-shadow:0 30px 80px rgba(0,0,0,0.8);
+}
 </style>
 </head>
 
 <body>
-
+<div class="stars"></div>
 <!-- ECRAN CADEAU -->
 <div id="giftScreen">
 <div>
@@ -549,15 +595,19 @@ const heart=document.createElement("div");
 
 heart.classList.add("heart");
 
-heart.innerHTML="💜";
+heart.innerHTML=["💜","💖","💗","💞"][Math.floor(Math.random()*4)];
 
 heart.style.left=Math.random()*100+"vw";
+heart.style.fontSize=(Math.random()*20+15)+"px";
+heart.style.animationDuration=(Math.random()*3+4)+"s";
 
 document.body.appendChild(heart);
 
-setTimeout(()=>{heart.remove();},6000);
+setTimeout(()=>{heart.remove();},7000);
 
 }
+
+setInterval(createHeart,400);
 
 setInterval(createHeart,500);
 
@@ -585,9 +635,30 @@ days+"j "+hours+"h "+minutes+"m "+seconds+"s";
 
 },1000);
 
+// ouvrir photo
+
+document.querySelectorAll(".memory-card img").forEach(img=>{
+
+img.addEventListener("click",function(){
+
+document.getElementById("photoModal").style.display="flex";
+document.getElementById("modalImg").src=this.src;
+
+});
+
+});
+
+function closePhoto(){
+
+document.getElementById("photoModal").style.display="none";
+
+}
+
 </script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-
+<div id="photoModal" onclick="closePhoto()">
+<img id="modalImg">
+</div>
 </body>
 </html>
