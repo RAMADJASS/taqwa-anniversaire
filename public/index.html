@@ -3,290 +3,286 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pour Taqwa ❤️</title>
+    <title>Taqwa — 22 Printemps ❤️</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:italic,wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lora:italic,wght@0,400;1,500&family=Montserrat:wght@200;400&display=swap" rel="stylesheet">
 
     <style>
         :root {
-            --dark: #0a0118;
-            --violet: #7b2cbf;
-            --soft-violet: #c77dff;
-            --glass: rgba(255, 255, 255, 0.03);
+            --royal-purple: #3c096c;
+            --soft-purple: #9d4edd;
+            --ivory: #ffffff;
+            --accent: #7b2cbf;
         }
 
         body {
-            background: var(--dark);
-            color: #f1f1f1;
+            background-color: var(--ivory);
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(123, 44, 191, 0.05) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(157, 78, 221, 0.08) 0px, transparent 50%);
+            color: var(--royal-purple);
             font-family: 'Montserrat', sans-serif;
             overflow-x: hidden;
-            letter-spacing: 0.5px;
+            scroll-behavior: smooth;
         }
 
-        /* Arrière-plan avec des particules violettes diffuses */
-        .bg-glow {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: radial-gradient(circle at 50% 50%, #240046 0%, #0a0118 100%);
-            z-index: -1;
-        }
+        /* Effet d'entrée Luxe */
+        .fade-in { animation: fadeIn 2s ease-in; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
-        /* Glassmorphism fin */
-        .glass-card {
-            background: var(--glass);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 20px;
-            padding: 35px;
-            transition: 0.5s ease;
-        }
-
-        /* HERO SECTION - Plus sobre */
+        /* HERO SECTION - Minimalisme Blanc & Violet */
         .hero {
-            min-height: 100vh;
+            height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
+            background: linear-gradient(to bottom, transparent, rgba(123, 44, 191, 0.03));
         }
 
-        h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 3.2rem;
+        .hero h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 3.5rem;
+            letter-spacing: 8px;
+            color: var(--royal-purple);
+            margin-bottom: 20px;
             font-weight: 700;
-            margin-bottom: 10px;
-            background: linear-gradient(to bottom, #fff, var(--soft-violet));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
         }
 
-        .age-text {
-            font-size: 1.1rem;
-            text-transform: uppercase;
-            letter-spacing: 4px;
-            color: var(--soft-violet);
-            opacity: 0.8;
+        .hero p {
+            font-family: 'Lora', serif;
+            font-style: italic;
+            font-size: 1.2rem;
+            color: var(--soft-purple);
+            letter-spacing: 2px;
         }
 
         .countdown {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 300;
-            font-size: 1.5rem;
-            margin-top: 30px;
-            padding: 10px 30px;
-            border-bottom: 1px solid rgba(199, 125, 255, 0.3);
+            font-size: 1.4rem;
+            font-weight: 200;
+            border-top: 1px solid var(--soft-purple);
+            border-bottom: 1px solid var(--soft-purple);
+            padding: 15px 40px;
+            margin-top: 40px;
             display: inline-block;
+            color: var(--royal-purple);
         }
 
-        /* GALERIE - Style Luxe */
-        .gallery-item {
+        /* CARTES DE TEXTE - Effet Papier de Soie */
+        .message-card {
+            background: white;
+            border: 1px solid rgba(123, 44, 191, 0.1);
+            padding: 60px;
+            border-radius: 0px; /* Look éditorial */
+            box-shadow: 20px 20px 60px rgba(0,0,0,0.03);
             position: relative;
-            overflow: hidden;
-            border-radius: 15px;
+        }
+
+        .message-card::before {
+            content: "";
+            position: absolute;
+            top: 10px; left: 10px; right: 10px; bottom: 10px;
+            border: 1px solid rgba(123, 44, 191, 0.05);
+            pointer-events: none;
+        }
+
+        /* GALERIE - Style Exposition d'Art */
+        .art-frame {
+            padding: 15px;
+            background: white;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
             transition: 0.5s;
-            border: 1px solid rgba(255,255,255,0.1);
+            margin-bottom: 30px;
         }
 
-        .gallery-item img {
+        .art-frame img {
             width: 100%;
-            height: 350px;
+            height: 400px;
             object-fit: cover;
-            transition: 0.8s;
-            filter: grayscale(20%);
+            filter: sepia(20%) brightness(1.05);
+            transition: 0.5s;
         }
 
-        .gallery-item:hover img {
-            transform: scale(1.1);
-            filter: grayscale(0%);
+        .art-frame:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(123, 44, 191, 0.1);
         }
 
-        /* SOUVENIRS - Polaroid Minimaliste */
-        .polaroid {
-            background: rgba(255, 255, 255, 0.02);
-            padding: 12px;
-            border-radius: 4px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            transition: 0.4s;
-        }
-
-        .polaroid img {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-            border-radius: 2px;
-        }
-
-        .polaroid p {
-            font-family: 'Playfair Display', serif;
-            font-style: italic;
-            font-size: 1rem;
-            margin-top: 15px;
-            color: var(--soft-violet);
-        }
-
-        /* TEXTE AMOUR - Plus fin */
-        #loveText {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 300;
-            line-height: 1.8;
-            font-size: 1.15rem;
-            max-width: 700px;
-            margin: auto;
-        }
-
-        /* BOUTONS LETTRES */
-        .btn-letter {
+        /* BOUTONS - Élégance Discrète */
+        .btn-royal {
             background: transparent;
-            border: 1px solid var(--soft-violet);
-            color: white;
-            padding: 12px 25px;
-            border-radius: 30px;
-            font-size: 0.85rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
+            border: 1px solid var(--royal-purple);
+            color: var(--royal-purple);
+            padding: 15px 35px;
+            font-family: 'Cinzel', serif;
+            font-size: 0.8rem;
+            letter-spacing: 3px;
             transition: 0.4s;
+            text-transform: uppercase;
         }
 
-        .btn-letter:hover {
-            background: var(--soft-violet);
-            box-shadow: 0 0 20px var(--violet);
-            color: var(--dark);
+        .btn-royal:hover {
+            background: var(--royal-purple);
+            color: white;
+            box-shadow: 0 10px 20px rgba(60, 9, 108, 0.2);
         }
 
-        /* ECRAN CADEAU - Très mystérieux */
+        /* POLAROIDS SOUVENIRS */
+        .souvenir-card {
+            background: white;
+            padding: 10px 10px 40px 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border: 1px solid #f0f0f0;
+        }
+
+        .souvenir-card p {
+            font-family: 'Lora', serif;
+            font-style: italic;
+            margin-top: 15px;
+            color: var(--accent);
+        }
+
+        /* ECRAN CADEAU - Chic et Pur */
         #giftScreen {
             position: fixed;
-            top:0; left:0; width:100%; height:100%;
-            background: var(--dark);
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: white;
             z-index: 10000;
             display: flex;
             align-items: center;
             justify-content: center;
+            flex-direction: column;
         }
 
-        .love-final {
-            font-family: 'Playfair Display', serif;
-            font-size: 3.5rem;
-            font-style: italic;
-            letter-spacing: 2px;
-        }
-
+        /* COEURS - Discrets en dégradé */
         .heart {
             position: fixed;
+            color: var(--soft-purple);
+            opacity: 0.4;
             pointer-events: none;
-            opacity: 0.6;
-            filter: drop-shadow(0 0 5px var(--soft-violet));
+            z-index: 999;
         }
 
         footer {
-            padding: 60px 0;
-            opacity: 0.6;
-            font-size: 0.8rem;
-            letter-spacing: 2px;
+            background: white;
+            border-top: 1px solid #eee;
+            padding: 80px 0;
+            text-align: center;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            font-size: 0.7rem;
+            color: var(--soft-purple);
         }
 
+        .love-final {
+            font-family: 'Cinzel', serif;
+            font-size: 2.5rem;
+            color: var(--royal-purple);
+            letter-spacing: 15px;
+            margin: 100px 0;
+        }
     </style>
 </head>
 
 <body>
 
-<div class="bg-glow"></div>
-
 <div id="giftScreen">
-    <div class="text-center">
-        <h2 class="age-text mb-4">Pour la plus belle</h2>
-        <button id="openGift" class="btn-letter" style="font-size: 1.1rem; padding: 20px 40px;">
-            Ouvrir mon cadeau 🎁
-        </button>
+    <div class="fade-in text-center">
+        <h2 style="font-family:'Cinzel'; letter-spacing: 5px; margin-bottom: 30px; color: var(--royal-purple);">Une Invitation à l'Amour</h2>
+        <button id="openGift" class="btn-royal">Ouvrir l'écrin 🎁</button>
     </div>
 </div>
 
 <section class="hero">
-    <div class="container">
-        <span class="age-text">22 Printemps de Pureté</span>
-        <h1>Joyeux anniversaire Taqwa</h1>
+    <div class="container fade-in">
+        <p>Vingt-deuxième Chapitre</p>
+        <h1>Taqwa</h1>
         <div id="countdown" class="countdown"></div>
     </div>
 </section>
 
 <section class="container py-5">
-    <div class="glass-card text-center">
-        <h2 class="age-text mb-5">Un mot de mon cœur</h2>
-        <p id="loveText"></p>
+    <div class="row justify-content-center">
+        <div class="col-md-10 col-lg-8">
+            <div class="message-card text-center">
+                <h2 style="font-family:'Cinzel'; font-size: 1.5rem; margin-bottom: 40px; letter-spacing: 4px;">À l'Aube de tes 22 Ans</h2>
+                <p id="loveText" style="font-family:'Lora', serif; font-size: 1.2rem; line-height: 2; color: #444;"></p>
+            </div>
+        </div>
     </div>
 </section>
 
 <section class="container py-5">
-    <h2 class="age-text text-center mb-5">Moments Gravés</h2>
-    <div class="row g-3">
-        <div class="col-md-4 col-6"><div class="gallery-item"><img src="images/taq1.jpeg" class="img-fluid"></div></div>
-        <div class="col-md-4 col-6"><div class="gallery-item"><img src="images/taq2.jpeg" class="img-fluid"></div></div>
-        <div class="col-md-4 col-6"><div class="gallery-item"><img src="images/taq3.jpeg" class="img-fluid"></div></div>
-        <div class="col-md-4 col-6"><div class="gallery-item"><img src="images/taq4.jpeg" class="img-fluid"></div></div>
-        <div class="col-md-4 col-6"><div class="gallery-item"><img src="images/taq5.jpeg" class="img-fluid"></div></div>
-        <div class="col-md-4 col-6"><div class="gallery-item"><img src="images/taq6.jpeg" class="img-fluid"></div></div>
+    <h2 class="text-center mb-5" style="font-family:'Cinzel'; letter-spacing: 6px;">Galerie de Souvenirs</h2>
+    <div class="row g-4">
+        <div class="col-md-4 col-6"><div class="art-frame"><img src="images/taq1.jpeg"></div></div>
+        <div class="col-md-4 col-6"><div class="art-frame"><img src="images/taq2.jpeg"></div></div>
+        <div class="col-md-4 col-6"><div class="art-frame"><img src="images/taq3.jpeg"></div></div>
+        <div class="col-md-4 col-6"><div class="art-frame"><img src="images/taq4.jpeg"></div></div>
+        <div class="col-md-4 col-6"><div class="art-frame"><img src="images/taq5.jpeg"></div></div>
+        <div class="col-md-4 col-6"><div class="art-frame"><img src="images/taq6.jpeg"></div></div>
     </div>
 </section>
 
 <section class="container py-5 text-center">
-    <div class="row g-3 justify-content-center">
-        <div class="col-md-3"><button class="btn-letter w-100" onclick="showLetter(1)">Douceur</button></div>
-        <div class="col-md-3"><button class="btn-letter w-100" onclick="showLetter(2)">Éternité</button></div>
-        <div class="col-md-3"><button class="btn-letter w-100" onclick="showLetter(3)">Lumière</button></div>
+    <div class="row g-4 justify-content-center">
+        <div class="col-md-3"><button class="btn-royal w-100" onclick="showLetter(1)">Douceur</button></div>
+        <div class="col-md-3"><button class="btn-royal w-100" onclick="showLetter(2)">Éternité</button></div>
+        <div class="col-md-3"><button class="btn-royal w-100" onclick="showLetter(3)">Lumière</button></div>
     </div>
-    <div id="letterContent" class="glass-card mt-5" style="display:none; border-color: var(--soft-violet); font-style: italic;"></div>
+    <div id="letterContent" class="message-card mt-5" style="display:none; font-family:'Lora'; font-style: italic;"></div>
 </section>
 
 <section class="container py-5">
-    <h2 class="age-text text-center mb-5">Fragments de bonheur</h2>
-    <div class="row g-4">
-        <div class="col-md-4 col-6 text-center">
-            <div class="polaroid" style="transform: rotate(-2deg);">
-                <img src="images/m1.jpeg">
-                <p>Ton sourire magicien ✨</p>
+    <h2 class="text-center mb-5" style="font-family:'Cinzel'; letter-spacing: 6px;">Instants Choisis</h2>
+    <div class="row g-5">
+        <div class="col-md-4 text-center">
+            <div class="souvenir-card">
+                <img src="images/m1.jpeg" class="img-fluid">
+                <p>La magie de ton sourire ✨</p>
             </div>
         </div>
-        <div class="col-md-4 col-6 text-center">
-            <div class="polaroid" style="transform: rotate(2deg);">
-                <img src="images/m2.jpeg">
-                <p>À jamais précieux 💜</p>
+        <div class="col-md-4 text-center">
+            <div class="souvenir-card">
+                <img src="images/m2.jpeg" class="img-fluid">
+                <p>Une éternité avec toi 💜</p>
             </div>
         </div>
-        <div class="col-md-4 col-6 text-center">
-            <div class="polaroid" style="transform: rotate(-1deg);">
-                <img src="images/m3.jpeg">
-                <p>Ma plus belle lumière ☀️</p>
+        <div class="col-md-4 text-center">
+            <div class="souvenir-card">
+                <img src="images/m3.jpeg" class="img-fluid">
+                <p>Ma lumière quotidienne ☀️</p>
             </div>
         </div>
-        <div class="col-md-4 col-6 text-center">
-            <div class="polaroid" style="transform: rotate(3deg);">
-                <img src="images/m4.jpeg">
-                <p>De la chance pure 💕</p>
+        <div class="col-md-4 text-center">
+            <div class="souvenir-card">
+                <img src="images/m4.jpeg" class="img-fluid">
+                <p>Ma plus belle rencontre 💕</p>
             </div>
         </div>
-        <div class="col-md-4 col-6 text-center">
-            <div class="polaroid" style="transform: rotate(-3deg);">
-                <img src="images/m5.jpeg">
-                <p>Notre poésie 📸</p>
+        <div class="col-md-4 text-center">
+            <div class="souvenir-card">
+                <img src="images/m5.jpeg" class="img-fluid">
+                <p>Notre poésie visuelle 📸</p>
             </div>
         </div>
-        <div class="col-md-4 col-6 text-center">
-            <div class="polaroid" style="transform: rotate(1deg);">
-                <img src="images/m6.jpeg">
-                <p>L'infini nous attend 💜</p>
+        <div class="col-md-4 text-center">
+            <div class="souvenir-card">
+                <img src="images/m6.jpeg" class="img-fluid">
+                <p>Vers l'infini ensemble 💜</p>
             </div>
         </div>
     </div>
 </section>
 
-<section class="text-center py-5">
-    <h2 class="love-final">Love you, Taqwa 💜</h2>
-</section>
+<div class="text-center">
+    <h2 class="love-final">Taqwa</h2>
+</div>
 
-<footer class="text-center">
-    <p>DÉDIÉ À TAQWA — 2026</p>
-    <p style="font-size: 0.6rem;">DESIGNED WITH PASSION BY RAMANDAN ADJASSA</p>
+<footer>
+    <p>Pour tes 22 ans — Créé avec Amour</p>
+    <p style="font-size: 0.5rem; margin-top: 20px;">By Ramandan Adjassa</p>
 </footer>
 
 <audio id="music" loop>
@@ -296,75 +292,77 @@
 <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 
 <script>
-// Ouverture Cadeau
-document.getElementById("openGift").addEventListener("click", function(){
-    document.getElementById("giftScreen").style.transition = "1.5s";
-    document.getElementById("giftScreen").style.opacity = "0";
-    setTimeout(() => {
-        document.getElementById("giftScreen").style.display = "none";
-        document.getElementById("music").play();
-        writeText();
-        confetti({ particleCount: 150, spread: 70, origin: { y: 0.6 }, colors: ['#7b2cbf', '#c77dff', '#ffffff'] });
-    }, 1500);
-});
+    // Ouverture cadeau
+    document.getElementById("openGift").addEventListener("click", function(){
+        const screen = document.getElementById("giftScreen");
+        screen.style.transition = "2s cubic-bezier(0.4, 0, 0.2, 1)";
+        screen.style.transform = "translateY(-100%)";
+        setTimeout(() => {
+            screen.style.display = "none";
+            document.getElementById("music").play();
+            writeText();
+            confetti({
+                particleCount: 100,
+                spread: 70,
+                origin: { y: 0.6 },
+                colors: ['#3c096c', '#7b2cbf', '#ffffff']
+            });
+        }, 1500);
+    });
 
-// Texte auto-écrit avec finesse
-const fullText = `Taqwa, depuis que tu as croisé mon chemin, le temps semble avoir pris une autre dimension. Chaque sourire que tu m'offres est une preuve que la beauté existe vraiment. En ce jour de tes 22 ans, je ne te souhaite pas seulement un joyeux anniversaire, je te promets que chaque jour sera une célébration de ce que tu es. Joyeux anniversaire, mon cœur 💜`;
-let index = 0;
-function writeText(){
-    if(index < fullText.length){
-        document.getElementById("loveText").innerHTML += fullText.charAt(index);
-        index++;
-        setTimeout(writeText, 35);
+    // Texte avec délai romantique
+    const textData = `Taqwa, en ce jour où tu célèbres tes 22 ans, je voulais t'offrir un espace à l'image de ce que tu es : pure et précieuse. Chaque seconde passée à tes côtés est une page d'un livre que je ne veux jamais cesser de lire. Joyeux anniversaire, mon amour. 💜`;
+    let i = 0;
+    function writeText(){
+        if(i < textData.length){
+            document.getElementById("loveText").innerHTML += textData.charAt(i);
+            i++;
+            setTimeout(writeText, 45);
+        }
     }
-}
 
-// Lettres
-function showLetter(n){
-    const letters = {
-        1: "Merci d'exister, Taqwa. Tu es l'équilibre de ma vie.",
-        2: "Le futur est une promesse que nous écrirons ensemble.",
-        3: "Tu es la lumière qui ne s'éteint jamais."
-    };
-    const box = document.getElementById("letterContent");
-    box.style.display = "block";
-    box.innerHTML = `<p>${letters[n]}</p>`;
-}
+    // Lettres
+    function showLetter(n){
+        const letters = {
+            1: "Ta douceur est le refuge de mon âme.",
+            2: "Je te promets des lendemains qui chantent.",
+            3: "Tu es le soleil qui ne se couche jamais sur ma vie."
+        };
+        const box = document.getElementById("letterContent");
+        box.style.display = "block";
+        box.innerHTML = `<p>${letters[n]}</p>`;
+        box.scrollIntoView({ behavior: 'smooth' });
+    }
 
-// Countdown
-const birthday = new Date("2026-03-28 00:00:00").getTime();
-setInterval(function(){
-    const now = new Date().getTime();
-    const distance = birthday - now;
-    const d = Math.floor(distance / (1000 * 60 * 60 * 24));
-    const h = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const m = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    const s = Math.floor((distance % (1000 * 60)) / 1000);
-    document.getElementById("countdown").innerHTML = `${d}j : ${h}h : ${m}m : ${s}s`;
-}, 1000);
+    // Countdown
+    const birthday = new Date("2026-03-28 00:00:00").getTime();
+    setInterval(function(){
+        const now = new Date().getTime();
+        const d = birthday - now;
+        const days = Math.floor(d / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((d % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((d % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((d % (1000 * 60)) / 1000);
+        document.getElementById("countdown").innerHTML = `${days} Jours — ${hours}h — ${minutes}m — ${seconds}s`;
+    }, 1000);
 
-// Coeurs délicats
-function createHeart(){
-    const heart = document.createElement("div");
-    heart.className = "heart";
-    heart.innerHTML = "💜";
-    heart.style.left = Math.random() * 100 + "vw";
-    heart.style.bottom = "-20px";
-    heart.style.fontSize = (Math.random() * 10 + 10) + "px";
-    heart.style.animation = `float ${Math.random() * 3 + 4}s linear forwards`;
-    document.body.appendChild(heart);
-    setTimeout(() => heart.remove(), 5000);
-}
-setInterval(createHeart, 600);
+    // Coeurs délicats
+    function createHeart(){
+        const heart = document.createElement("div");
+        heart.className = "heart";
+        heart.innerHTML = "💜";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.bottom = "-20px";
+        heart.style.fontSize = (Math.random() * 15 + 10) + "px";
+        heart.style.animation = `floatUp ${Math.random() * 4 + 5}s linear forwards`;
+        document.body.appendChild(heart);
+        setTimeout(() => heart.remove(), 7000);
+    }
+    setInterval(createHeart, 800);
 
-// Animation flottante des cœurs
-const style = document.createElement('style');
-style.innerHTML = `@keyframes float { 
-    to { transform: translateY(-110vh) rotate(360deg); opacity: 0; } 
-}`;
-document.head.appendChild(style);
-
+    const style = document.createElement('style');
+    style.innerHTML = `@keyframes floatUp { to { transform: translateY(-110vh) rotate(360deg); opacity: 0; } }`;
+    document.head.appendChild(style);
 </script>
-
 </body>
 </html>
