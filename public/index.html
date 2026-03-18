@@ -3,335 +3,328 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Taqwa — 22 Printemps ❤️</title>
+    <title>Taqwa — L'Éternité à 22 Ans ❤️</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lora:italic,wght@0,400;1,500&family=Montserrat:wght@200;400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@100;300;400&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/scrollreveal"></script>
 
     <style>
         :root {
-            --royal-purple: #3c096c;
-            --soft-purple: #9d4edd;
-            --ivory: #ffffff;
-            --accent: #7b2cbf;
+            --royal-purple: #240046;
+            --soft-violet: #7b2cbf;
+            --silk-white: #ffffff;
+            --gold-dust: rgba(199, 125, 255, 0.2);
         }
 
         body {
-            background-color: var(--ivory);
-            background-image: 
-                radial-gradient(at 0% 0%, rgba(123, 44, 191, 0.05) 0px, transparent 50%),
-                radial-gradient(at 100% 100%, rgba(157, 78, 221, 0.08) 0px, transparent 50%);
+            background: var(--silk-white);
             color: var(--royal-purple);
             font-family: 'Montserrat', sans-serif;
             overflow-x: hidden;
-            scroll-behavior: smooth;
+            background: radial-gradient(circle at top right, #f8f4ff, #ffffff);
         }
 
-        /* Effet d'entrée Luxe */
-        .fade-in { animation: fadeIn 2s ease-in; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        /* Effet Satin en arrière-plan */
+        .satin-bg {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: url('https://www.transparenttextures.com/patterns/white-diamond.png');
+            opacity: 0.05;
+            z-index: -1;
+        }
 
-        /* HERO SECTION - Minimalisme Blanc & Violet */
+        /* HERO - Minimalisme Absolu */
         .hero {
             height: 100vh;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
             text-align: center;
-            background: linear-gradient(to bottom, transparent, rgba(123, 44, 191, 0.03));
+            background: linear-gradient(to bottom, rgba(123, 44, 191, 0.02), transparent);
         }
 
-        .hero h1 {
-            font-family: 'Cinzel', serif;
-            font-size: 3.5rem;
-            letter-spacing: 8px;
-            color: var(--royal-purple);
-            margin-bottom: 20px;
-            font-weight: 700;
-        }
-
-        .hero p {
-            font-family: 'Lora', serif;
-            font-style: italic;
-            font-size: 1.2rem;
-            color: var(--soft-purple);
-            letter-spacing: 2px;
-        }
-
-        .countdown {
-            font-size: 1.4rem;
-            font-weight: 200;
-            border-top: 1px solid var(--soft-purple);
-            border-bottom: 1px solid var(--soft-purple);
-            padding: 15px 40px;
-            margin-top: 40px;
-            display: inline-block;
+        h1 {
+            font-family: 'Bodoni Moda', serif;
+            font-size: clamp(3rem, 10vw, 6rem);
+            font-weight: 400;
+            letter-spacing: -2px;
+            margin-bottom: 0.5rem;
             color: var(--royal-purple);
         }
 
-        /* CARTES DE TEXTE - Effet Papier de Soie */
-        .message-card {
-            background: white;
-            border: 1px solid rgba(123, 44, 191, 0.1);
-            padding: 60px;
-            border-radius: 0px; /* Look éditorial */
-            box-shadow: 20px 20px 60px rgba(0,0,0,0.03);
-            position: relative;
-        }
-
-        .message-card::before {
-            content: "";
-            position: absolute;
-            top: 10px; left: 10px; right: 10px; bottom: 10px;
-            border: 1px solid rgba(123, 44, 191, 0.05);
-            pointer-events: none;
-        }
-
-        /* GALERIE - Style Exposition d'Art */
-        .art-frame {
-            padding: 15px;
-            background: white;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            transition: 0.5s;
-            margin-bottom: 30px;
-        }
-
-        .art-frame img {
-            width: 100%;
-            height: 400px;
-            object-fit: cover;
-            filter: sepia(20%) brightness(1.05);
-            transition: 0.5s;
-        }
-
-        .art-frame:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(123, 44, 191, 0.1);
-        }
-
-        /* BOUTONS - Élégance Discrète */
-        .btn-royal {
-            background: transparent;
-            border: 1px solid var(--royal-purple);
-            color: var(--royal-purple);
-            padding: 15px 35px;
-            font-family: 'Cinzel', serif;
-            font-size: 0.8rem;
-            letter-spacing: 3px;
-            transition: 0.4s;
+        .subtitle {
+            font-size: 0.9rem;
             text-transform: uppercase;
+            letter-spacing: 6px;
+            color: var(--soft-violet);
+            font-weight: 300;
+        }
+
+        /* CAROUSEL 3D "WAOUH" */
+        .carousel-container {
+            perspective: 1500px;
+            padding: 100px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 600px;
+        }
+
+        .photo-stack {
+            position: relative;
+            width: 320px;
+            height: 450px;
+            transform-style: preserve-3d;
+            cursor: pointer;
+        }
+
+        .photo-card {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: white;
+            padding: 15px 15px 50px 15px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+            border: 1px solid #f0f0f0;
+            transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+            backface-visibility: hidden;
+        }
+
+        .photo-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: contrast(1.05);
+        }
+
+        /* Animation des cartes (automatisée ou au scroll) */
+        .photo-card:nth-child(1) { transform: rotateY(0deg) translateZ(0px); z-index: 5; }
+        .photo-card:nth-child(2) { transform: rotateY(-10deg) translateZ(-100px) translateX(-50px); z-index: 4; opacity: 0.8; }
+        .photo-card:nth-child(3) { transform: rotateY(10deg) translateZ(-200px) translateX(50px); z-index: 3; opacity: 0.6; }
+        .photo-card:nth-child(4) { transform: rotateY(-15deg) translateZ(-300px) translateX(-100px); z-index: 2; opacity: 0.4; }
+
+        .photo-stack:hover .photo-card {
+            transform: rotateY(0deg) translateZ(0px) translateX(var(--tx)) !important;
+            opacity: 1 !important;
+        }
+
+        /* GLASS MESSAGE */
+        .glass-message {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(123, 44, 191, 0.1);
+            padding: 80px 40px;
+            border-radius: 40px;
+            max-width: 800px;
+            margin: auto;
+            box-shadow: 0 40px 100px rgba(123, 44, 191, 0.05);
+        }
+
+        .love-text {
+            font-family: 'Bodoni Moda', serif;
+            font-size: 1.6rem;
+            line-height: 1.8;
+            font-style: italic;
+            color: var(--royal-purple);
+        }
+
+        /* SOUVENIRS - Minimalisme Chic */
+        .souvenir-item {
+            position: relative;
+            margin-bottom: 80px;
+            transition: 0.5s;
+        }
+
+        .souvenir-item img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+
+        .souvenir-caption {
+            position: absolute;
+            bottom: -30px;
+            right: -20px;
+            background: white;
+            padding: 20px 40px;
+            font-family: 'Bodoni Moda', serif;
+            font-style: italic;
+            box-shadow: 10px 10px 30px rgba(0,0,0,0.05);
+            border-left: 4px solid var(--soft-violet);
+        }
+
+        /* BOUTON ROYAL */
+        .btn-royal {
+            border: none;
+            background: var(--royal-purple);
+            color: white;
+            padding: 18px 45px;
+            font-size: 0.7rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            border-radius: 0;
+            transition: 0.5s;
+            position: relative;
+            overflow: hidden;
         }
 
         .btn-royal:hover {
-            background: var(--royal-purple);
+            letter-spacing: 6px;
+            background: var(--soft-violet);
             color: white;
-            box-shadow: 0 10px 20px rgba(60, 9, 108, 0.2);
         }
 
-        /* POLAROIDS SOUVENIRS */
-        .souvenir-card {
-            background: white;
-            padding: 10px 10px 40px 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            border: 1px solid #f0f0f0;
+        /* COUNTDOWN LUXE */
+        .countdown-luxe {
+            font-weight: 100;
+            font-size: 1.5rem;
+            letter-spacing: 10px;
+            margin-top: 50px;
+            opacity: 0.6;
         }
 
-        .souvenir-card p {
-            font-family: 'Lora', serif;
-            font-style: italic;
-            margin-top: 15px;
-            color: var(--accent);
-        }
-
-        /* ECRAN CADEAU - Chic et Pur */
         #giftScreen {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: white;
-            z-index: 10000;
+            background: #fff;
+            z-index: 99999;
             display: flex;
             align-items: center;
             justify-content: center;
-            flex-direction: column;
+            transition: 1.5s cubic-bezier(1, 0, 0, 1);
         }
 
-        /* COEURS - Discrets en dégradé */
         .heart {
             position: fixed;
-            color: var(--soft-purple);
-            opacity: 0.4;
+            color: var(--soft-violet);
             pointer-events: none;
-            z-index: 999;
-        }
-
-        footer {
-            background: white;
-            border-top: 1px solid #eee;
-            padding: 80px 0;
-            text-align: center;
-            letter-spacing: 5px;
-            text-transform: uppercase;
-            font-size: 0.7rem;
-            color: var(--soft-purple);
-        }
-
-        .love-final {
-            font-family: 'Cinzel', serif;
-            font-size: 2.5rem;
-            color: var(--royal-purple);
-            letter-spacing: 15px;
-            margin: 100px 0;
+            z-index: 10;
         }
     </style>
 </head>
-
 <body>
 
+<div class="satin-bg"></div>
+
 <div id="giftScreen">
-    <div class="fade-in text-center">
-        <h2 style="font-family:'Cinzel'; letter-spacing: 5px; margin-bottom: 30px; color: var(--royal-purple);">Une Invitation à l'Amour</h2>
-        <button id="openGift" class="btn-royal">Ouvrir l'écrin 🎁</button>
+    <div class="text-center">
+        <h2 class="subtitle mb-4">Un écrin pour Taqwa</h2>
+        <button id="openGift" class="btn-royal">Entrer dans son univers 💜</button>
     </div>
 </div>
 
 <section class="hero">
-    <div class="container fade-in">
-        <p>Vingt-deuxième Chapitre</p>
-        <h1>Taqwa</h1>
-        <div id="countdown" class="countdown"></div>
-    </div>
-</section>
-
-<section class="container py-5">
-    <div class="row justify-content-center">
-        <div class="col-md-10 col-lg-8">
-            <div class="message-card text-center">
-                <h2 style="font-family:'Cinzel'; font-size: 1.5rem; margin-bottom: 40px; letter-spacing: 4px;">À l'Aube de tes 22 Ans</h2>
-                <p id="loveText" style="font-family:'Lora', serif; font-size: 1.2rem; line-height: 2; color: #444;"></p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="container py-5">
-    <h2 class="text-center mb-5" style="font-family:'Cinzel'; letter-spacing: 6px;">Galerie de Souvenirs</h2>
-    <div class="row g-4">
-        <div class="col-md-4 col-6"><div class="art-frame"><img src="images/taq1.jpeg"></div></div>
-        <div class="col-md-4 col-6"><div class="art-frame"><img src="images/taq2.jpeg"></div></div>
-        <div class="col-md-4 col-6"><div class="art-frame"><img src="images/taq3.jpeg"></div></div>
-        <div class="col-md-4 col-6"><div class="art-frame"><img src="images/taq4.jpeg"></div></div>
-        <div class="col-md-4 col-6"><div class="art-frame"><img src="images/taq5.jpeg"></div></div>
-        <div class="col-md-4 col-6"><div class="art-frame"><img src="images/taq6.jpeg"></div></div>
-    </div>
+    <span class="subtitle reveal">Vingt-deuxième chapitre</span>
+    <h1 class="reveal">Taqwa</h1>
+    <div id="countdown" class="countdown-luxe reveal"></div>
 </section>
 
 <section class="container py-5 text-center">
-    <div class="row g-4 justify-content-center">
-        <div class="col-md-3"><button class="btn-royal w-100" onclick="showLetter(1)">Douceur</button></div>
-        <div class="col-md-3"><button class="btn-royal w-100" onclick="showLetter(2)">Éternité</button></div>
-        <div class="col-md-3"><button class="btn-royal w-100" onclick="showLetter(3)">Lumière</button></div>
+    <span class="subtitle mb-5 d-block">Fragments d'éternité</span>
+    <div class="carousel-container reveal">
+        <div class="photo-stack" id="stack">
+            <div class="photo-card" style="--tx: -350px"><img src="images/taq1.jpeg"></div>
+            <div class="photo-card" style="--tx: -200px"><img src="images/taq2.jpeg"></div>
+            <div class="photo-card" style="--tx: -50px"><img src="images/taq3.jpeg"></div>
+            <div class="photo-card" style="--tx: 100px"><img src="images/taq4.jpeg"></div>
+            <div class="photo-card" style="--tx: 250px"><img src="images/taq5.jpeg"></div>
+            <div class="photo-card" style="--tx: 400px"><img src="images/taq6.jpeg"></div>
+        </div>
     </div>
-    <div id="letterContent" class="message-card mt-5" style="display:none; font-family:'Lora'; font-style: italic;"></div>
+    <p class="mt-4 opacity-50 small">Survole les photos pour les déployer</p>
 </section>
 
 <section class="container py-5">
-    <h2 class="text-center mb-5" style="font-family:'Cinzel'; letter-spacing: 6px;">Instants Choisis</h2>
-    <div class="row g-5">
-        <div class="col-md-4 text-center">
-            <div class="souvenir-card">
-                <img src="images/m1.jpeg" class="img-fluid">
-                <p>La magie de ton sourire ✨</p>
-            </div>
+    <div class="glass-message text-center reveal">
+        <span class="subtitle d-block mb-4">De mon âme à la tienne</span>
+        <p id="loveText" class="love-text"></p>
+    </div>
+</section>
+
+<section class="container py-5">
+    <div class="row g-4 justify-content-center reveal">
+        <div class="col-md-3"><button class="btn-royal w-100" onclick="showLetter(1)">Douceur</button></div>
+        <div class="col-md-3"><button class="btn-royal w-100" onclick="showLetter(2)">Infini</button></div>
+        <div class="col-md-3"><button class="btn-royal w-100" onclick="showLetter(3)">Éclat</button></div>
+    </div>
+    <div id="letterContent" class="glass-message mt-5 text-center reveal" style="display:none; padding: 40px;"></div>
+</section>
+
+<section class="container py-5">
+    <h2 class="subtitle text-center mb-5">Moments Choisis</h2>
+    <div class="row">
+        <div class="col-md-6 souvenir-item reveal">
+            <img src="images/m1.jpeg">
+            <div class="souvenir-caption">Ton sourire est mon aube ✨</div>
         </div>
-        <div class="col-md-4 text-center">
-            <div class="souvenir-card">
-                <img src="images/m2.jpeg" class="img-fluid">
-                <p>Une éternité avec toi 💜</p>
-            </div>
+        <div class="col-md-6 souvenir-item reveal" style="margin-top: 100px;">
+            <img src="images/m2.jpeg">
+            <div class="souvenir-caption">Une présence sacrée 💜</div>
         </div>
-        <div class="col-md-4 text-center">
-            <div class="souvenir-card">
-                <img src="images/m3.jpeg" class="img-fluid">
-                <p>Ma lumière quotidienne ☀️</p>
-            </div>
+        <div class="col-md-6 souvenir-item reveal">
+            <img src="images/m3.jpeg">
+            <div class="souvenir-caption">Lumière de mes jours ☀️</div>
         </div>
-        <div class="col-md-4 text-center">
-            <div class="souvenir-card">
-                <img src="images/m4.jpeg" class="img-fluid">
-                <p>Ma plus belle rencontre 💕</p>
-            </div>
-        </div>
-        <div class="col-md-4 text-center">
-            <div class="souvenir-card">
-                <img src="images/m5.jpeg" class="img-fluid">
-                <p>Notre poésie visuelle 📸</p>
-            </div>
-        </div>
-        <div class="col-md-4 text-center">
-            <div class="souvenir-card">
-                <img src="images/m6.jpeg" class="img-fluid">
-                <p>Vers l'infini ensemble 💜</p>
-            </div>
+        <div class="col-md-6 souvenir-item reveal" style="margin-top: 100px;">
+            <img src="images/m4.jpeg">
+            <div class="souvenir-caption">Mon plus beau poème 💕</div>
         </div>
     </div>
 </section>
 
-<div class="text-center">
-    <h2 class="love-final">Taqwa</h2>
-</div>
+<section class="py-5 text-center reveal">
+    <h2 class="love-final" style="font-family:'Bodoni Moda'; font-size: 4rem; letter-spacing: 10px;">LOVE U</h2>
+    <h2 class="love-final" style="font-family:'Bodoni Moda'; font-size: 5rem; letter-spacing: 20px; color: var(--soft-violet);">TAQWA</h2>
+</section>
 
-<footer>
-    <p>Pour tes 22 ans — Créé avec Amour</p>
-    <p style="font-size: 0.5rem; margin-top: 20px;">By Ramandan Adjassa</p>
+<footer class="text-center py-5">
+    <p class="subtitle" style="font-size: 0.6rem;">© 2026 — Pour les 22 ans de Taqwa</p>
+    <p class="opacity-50 small mt-2">Designed by Ramandan Adjassa</p>
 </footer>
 
 <audio id="music" loop>
     <source src="music/merveille.mp3" type="audio/mpeg">
 </audio>
 
-<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
-
 <script>
-    // Ouverture cadeau
+    // Initialisation ScrollReveal
+    ScrollReveal().reveal('.reveal', { delay: 300, distance: '50px', duration: 1000, interval: 200 });
+
+    // Gestion de l'ouverture
     document.getElementById("openGift").addEventListener("click", function(){
-        const screen = document.getElementById("giftScreen");
-        screen.style.transition = "2s cubic-bezier(0.4, 0, 0.2, 1)";
-        screen.style.transform = "translateY(-100%)";
+        document.getElementById("giftScreen").style.transform = "scale(2)";
+        document.getElementById("giftScreen").style.opacity = "0";
         setTimeout(() => {
-            screen.style.display = "none";
+            document.getElementById("giftScreen").style.display = "none";
             document.getElementById("music").play();
             writeText();
-            confetti({
-                particleCount: 100,
-                spread: 70,
-                origin: { y: 0.6 },
-                colors: ['#3c096c', '#7b2cbf', '#ffffff']
-            });
-        }, 1500);
+        }, 1000);
     });
 
-    // Texte avec délai romantique
-    const textData = `Taqwa, en ce jour où tu célèbres tes 22 ans, je voulais t'offrir un espace à l'image de ce que tu es : pure et précieuse. Chaque seconde passée à tes côtés est une page d'un livre que je ne veux jamais cesser de lire. Joyeux anniversaire, mon amour. 💜`;
+    // Texte avec fluidité
+    const textData = `Taqwa, tu es cette mélodie qui ne finit jamais. À 22 ans, tu es la plus belle version du bonheur. Ce site est une modeste fenêtre sur tout l'amour que je te porte. Joyeux anniversaire, mon étoile. 💜`;
     let i = 0;
     function writeText(){
         if(i < textData.length){
             document.getElementById("loveText").innerHTML += textData.charAt(i);
             i++;
-            setTimeout(writeText, 45);
+            setTimeout(writeText, 50);
         }
     }
 
     // Lettres
     function showLetter(n){
         const letters = {
-            1: "Ta douceur est le refuge de mon âme.",
-            2: "Je te promets des lendemains qui chantent.",
-            3: "Tu es le soleil qui ne se couche jamais sur ma vie."
+            1: "Ta gentillesse est une leçon de vie pour moi chaque jour.",
+            2: "Je nous souhaite des milliers de couchers de soleil ensemble.",
+            3: "Tu es la seule et unique Taqwa de mon cœur."
         };
         const box = document.getElementById("letterContent");
         box.style.display = "block";
-        box.innerHTML = `<p>${letters[n]}</p>`;
-        box.scrollIntoView({ behavior: 'smooth' });
+        box.innerHTML = `<p class="love-text">"${letters[n]}"</p>`;
     }
 
     // Countdown
@@ -343,26 +336,28 @@
         const hours = Math.floor((d % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
         const minutes = Math.floor((d % (1000 * 60 * 60)) / (1000 * 60));
         const seconds = Math.floor((d % (1000 * 60)) / 1000);
-        document.getElementById("countdown").innerHTML = `${days} Jours — ${hours}h — ${minutes}m — ${seconds}s`;
+        document.getElementById("countdown").innerHTML = `${days}D . ${hours}H . ${minutes}M . ${seconds}S`;
     }, 1000);
 
-    // Coeurs délicats
+    // Cœurs minimalistes
     function createHeart(){
         const heart = document.createElement("div");
         heart.className = "heart";
         heart.innerHTML = "💜";
         heart.style.left = Math.random() * 100 + "vw";
         heart.style.bottom = "-20px";
-        heart.style.fontSize = (Math.random() * 15 + 10) + "px";
-        heart.style.animation = `floatUp ${Math.random() * 4 + 5}s linear forwards`;
+        heart.style.fontSize = "12px";
+        heart.style.opacity = Math.random();
+        heart.style.animation = `floatUp ${Math.random() * 5 + 5}s linear forwards`;
         document.body.appendChild(heart);
         setTimeout(() => heart.remove(), 7000);
     }
-    setInterval(createHeart, 800);
+    setInterval(createHeart, 1000);
 
     const style = document.createElement('style');
-    style.innerHTML = `@keyframes floatUp { to { transform: translateY(-110vh) rotate(360deg); opacity: 0; } }`;
+    style.innerHTML = `@keyframes floatUp { to { transform: translateY(-110vh) rotate(45deg); opacity: 0; } }`;
     document.head.appendChild(style);
 </script>
+
 </body>
 </html>
