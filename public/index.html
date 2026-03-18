@@ -3,278 +3,290 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Taqwa — L'Éternité à 22 Ans ❤️</title>
+    <title>Pour Taqwa ❤️</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@100;300;400;600&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:italic,wght@400;700&display=swap" rel="stylesheet">
+
     <style>
         :root {
-            --royal-purple: #240046;
-            --soft-violet: #7b2cbf;
-            --ivory: #ffffff;
-            --border-color: rgba(123, 44, 191, 0.15);
+            --dark: #0a0118;
+            --violet: #7b2cbf;
+            --soft-violet: #c77dff;
+            --glass: rgba(255, 255, 255, 0.03);
         }
 
         body {
-            background: var(--ivory);
-            color: var(--royal-purple);
+            background: var(--dark);
+            color: #f1f1f1;
             font-family: 'Montserrat', sans-serif;
             overflow-x: hidden;
+            letter-spacing: 0.5px;
         }
 
-        /* --- SECTION HERO (Gardée & Sublimée) --- */
+        /* Arrière-plan avec des particules violettes diffuses */
+        .bg-glow {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle at 50% 50%, #240046 0%, #0a0118 100%);
+            z-index: -1;
+        }
+
+        /* Glassmorphism fin */
+        .glass-card {
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 20px;
+            padding: 35px;
+            transition: 0.5s ease;
+        }
+
+        /* HERO SECTION - Plus sobre */
         .hero {
-            height: 100vh;
+            min-height: 100vh;
             display: flex;
-            flex-direction: column;
             align-items: center;
             justify-content: center;
             text-align: center;
-            background: radial-gradient(circle at center, rgba(123, 44, 191, 0.03) 0%, transparent 70%);
         }
 
         h1 {
-            font-family: 'Bodoni Moda', serif;
-            font-size: clamp(3.5rem, 12vw, 7rem);
-            font-weight: 400;
-            letter-spacing: -3px;
-            line-height: 0.9;
+            font-family: 'Playfair Display', serif;
+            font-size: 3.2rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            background: linear-gradient(to bottom, #fff, var(--soft-violet));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
-        .subtitle {
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 8px;
-            color: var(--soft-violet);
-            margin-bottom: 20px;
-        }
-
-        .countdown-luxe {
-            font-weight: 200;
-            font-size: 1.2rem;
-            letter-spacing: 5px;
-            margin-top: 40px;
-            padding: 10px 30px;
-            border-top: 1px solid var(--border-color);
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        /* --- GALERIE "ART CURATOR" (WAOUH) --- */
-        .gallery-grid {
-            column-count: 3;
-            column-gap: 30px;
-            padding: 50px 0;
-        }
-
-        @media (max-width: 992px) { .gallery-grid { column-count: 2; } }
-        @media (max-width: 576px) { .gallery-grid { column-count: 1; } }
-
-        .art-card {
-            break-inside: avoid;
-            margin-bottom: 30px;
-            position: relative;
-            background: white;
-            padding: 15px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.03);
-            transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
-            border: 1px solid #f8f8f8;
-            cursor: pointer;
-        }
-
-        .art-card img {
-            width: 100%;
-            display: block;
-            transition: transform 0.6s;
-        }
-
-        .art-card:hover {
-            transform: scale(1.02) translateY(-10px);
-            box-shadow: 0 30px 60px rgba(123, 44, 191, 0.12);
-            border-color: var(--soft-violet);
-        }
-
-        /* --- SECTION MESSAGE "POÉSIE" --- */
-        .poetry-section {
-            background: #fbfaff;
-            padding: 120px 0;
-            margin: 100px 0;
-            border-top: 1px solid var(--border-color);
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .love-text {
-            font-family: 'Bodoni Moda', serif;
-            font-size: 2rem;
-            font-style: italic;
-            line-height: 1.6;
-            max-width: 900px;
-            margin: auto;
-            position: relative;
-        }
-
-        .love-text::before {
-            content: "“";
-            position: absolute;
-            top: -50px; left: 50%; transform: translateX(-50%);
-            font-size: 5rem; color: var(--soft-violet); opacity: 0.2;
-        }
-
-        /* --- SOUVENIRS "LUXE" --- */
-        .memory-wrap {
-            display: flex;
-            align-items: center;
-            gap: 50px;
-            margin-bottom: 150px;
-        }
-
-        .memory-wrap:nth-child(even) { flex-direction: row-reverse; }
-
-        .memory-img {
-            flex: 1;
-            overflow: hidden;
-            box-shadow: 30px 30px 0px var(--soft-violet);
-            transition: 0.5s;
-        }
-
-        .memory-img img { width: 100%; transition: 1.5s; }
-        .memory-wrap:hover .memory-img img { transform: scale(1.1); }
-
-        .memory-info {
-            flex: 1;
-            padding: 40px;
-        }
-
-        .memory-info h3 {
-            font-family: 'Bodoni Moda', serif;
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-        }
-
-        /* --- BOUTONS & LETTRES --- */
-        .btn-luxe {
-            border: 1px solid var(--royal-purple);
-            background: transparent;
-            color: var(--royal-purple);
-            padding: 20px 40px;
+        .age-text {
+            font-size: 1.1rem;
             text-transform: uppercase;
             letter-spacing: 4px;
-            font-size: 0.7rem;
+            color: var(--soft-violet);
+            opacity: 0.8;
+        }
+
+        .countdown {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 300;
+            font-size: 1.5rem;
+            margin-top: 30px;
+            padding: 10px 30px;
+            border-bottom: 1px solid rgba(199, 125, 255, 0.3);
+            display: inline-block;
+        }
+
+        /* GALERIE - Style Luxe */
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            transition: 0.5s;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            transition: 0.8s;
+            filter: grayscale(20%);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+            filter: grayscale(0%);
+        }
+
+        /* SOUVENIRS - Polaroid Minimaliste */
+        .polaroid {
+            background: rgba(255, 255, 255, 0.02);
+            padding: 12px;
+            border-radius: 4px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
             transition: 0.4s;
-            margin: 10px;
         }
 
-        .btn-luxe:hover {
-            background: var(--royal-purple);
+        .polaroid img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 2px;
+        }
+
+        .polaroid p {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 1rem;
+            margin-top: 15px;
+            color: var(--soft-violet);
+        }
+
+        /* TEXTE AMOUR - Plus fin */
+        #loveText {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 300;
+            line-height: 1.8;
+            font-size: 1.15rem;
+            max-width: 700px;
+            margin: auto;
+        }
+
+        /* BOUTONS LETTRES */
+        .btn-letter {
+            background: transparent;
+            border: 1px solid var(--soft-violet);
             color: white;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: 0.4s;
         }
 
+        .btn-letter:hover {
+            background: var(--soft-violet);
+            box-shadow: 0 0 20px var(--violet);
+            color: var(--dark);
+        }
+
+        /* ECRAN CADEAU - Très mystérieux */
         #giftScreen {
-            position: fixed; top:0; left:0; width:100%; height:100%;
-            background: white; z-index: 10000;
-            display: flex; align-items: center; justify-content: center;
+            position: fixed;
+            top:0; left:0; width:100%; height:100%;
+            background: var(--dark);
+            z-index: 10000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .love-final {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-style: italic;
+            letter-spacing: 2px;
+        }
+
+        .heart {
+            position: fixed;
+            pointer-events: none;
+            opacity: 0.6;
+            filter: drop-shadow(0 0 5px var(--soft-violet));
         }
 
         footer {
-            padding: 100px 0;
-            background: white;
-            border-top: 1px solid #eee;
-            text-align: center;
-            letter-spacing: 5px;
-            text-transform: uppercase;
-            font-size: 0.7rem;
-            color: #999;
+            padding: 60px 0;
+            opacity: 0.6;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
         }
+
     </style>
 </head>
 
 <body>
 
+<div class="bg-glow"></div>
+
 <div id="giftScreen">
     <div class="text-center">
-        <h2 class="subtitle mb-4">Une expérience pour elle</h2>
-        <button id="openGift" class="btn-luxe">Entrer dans l'univers de Taqwa</button>
+        <h2 class="age-text mb-4">Pour la plus belle</h2>
+        <button id="openGift" class="btn-letter" style="font-size: 1.1rem; padding: 20px 40px;">
+            Ouvrir mon cadeau 🎁
+        </button>
     </div>
 </div>
 
 <section class="hero">
     <div class="container">
-        <span class="subtitle">L'Éclat de tes 22 Printemps</span>
-        <h1>Taqwa</h1>
-        <div id="countdown" class="countdown-luxe"></div>
+        <span class="age-text">22 Printemps de Pureté</span>
+        <h1>Joyeux anniversaire Taqwa</h1>
+        <div id="countdown" class="countdown"></div>
     </div>
 </section>
 
 <section class="container py-5">
-    <h2 class="subtitle text-center mb-5">Collections de Souvenirs</h2>
-    <div class="gallery-grid">
-        <div class="art-card"><img src="images/taq1.jpeg"></div>
-        <div class="art-card"><img src="images/taq2.jpeg"></div>
-        <div class="art-card"><img src="images/taq3.jpeg"></div>
-        <div class="art-card"><img src="images/taq4.jpeg"></div>
-        <div class="art-card"><img src="images/taq5.jpeg"></div>
-        <div class="art-card"><img src="images/taq6.jpeg"></div>
+    <div class="glass-card text-center">
+        <h2 class="age-text mb-5">Un mot de mon cœur</h2>
+        <p id="loveText"></p>
     </div>
 </section>
 
-<section class="poetry-section text-center">
-    <div class="container">
-        <p id="loveText" class="love-text"></p>
+<section class="container py-5">
+    <h2 class="age-text text-center mb-5">Moments Gravés</h2>
+    <div class="row g-3">
+        <div class="col-md-4 col-6"><div class="gallery-item"><img src="images/taq1.jpeg" class="img-fluid"></div></div>
+        <div class="col-md-4 col-6"><div class="gallery-item"><img src="images/taq2.jpeg" class="img-fluid"></div></div>
+        <div class="col-md-4 col-6"><div class="gallery-item"><img src="images/taq3.jpeg" class="img-fluid"></div></div>
+        <div class="col-md-4 col-6"><div class="gallery-item"><img src="images/taq4.jpeg" class="img-fluid"></div></div>
+        <div class="col-md-4 col-6"><div class="gallery-item"><img src="images/taq5.jpeg" class="img-fluid"></div></div>
+        <div class="col-md-4 col-6"><div class="gallery-item"><img src="images/taq6.jpeg" class="img-fluid"></div></div>
     </div>
 </section>
 
 <section class="container py-5 text-center">
-    <div class="d-flex flex-wrap justify-content-center">
-        <button class="btn-luxe" onclick="showLetter(1)">Douceur 💌</button>
-        <button class="btn-luxe" onclick="showLetter(2)">Éternité 💜</button>
-        <button class="btn-luxe" onclick="showLetter(3)">Lumière ✨</button>
+    <div class="row g-3 justify-content-center">
+        <div class="col-md-3"><button class="btn-letter w-100" onclick="showLetter(1)">Douceur</button></div>
+        <div class="col-md-3"><button class="btn-letter w-100" onclick="showLetter(2)">Éternité</button></div>
+        <div class="col-md-3"><button class="btn-letter w-100" onclick="showLetter(3)">Lumière</button></div>
     </div>
-    <div id="letterContent" class="mt-5 love-text" style="display:none; font-size: 1.5rem;"></div>
+    <div id="letterContent" class="glass-card mt-5" style="display:none; border-color: var(--soft-violet); font-style: italic;"></div>
 </section>
 
 <section class="container py-5">
-    <div class="memory-wrap">
-        <div class="memory-img"><img src="images/m1.jpeg"></div>
-        <div class="memory-info">
-            <h3>Éclat Pur</h3>
-            <p>Ton sourire est le seul langage que mon cœur comprend parfaitement. ✨</p>
+    <h2 class="age-text text-center mb-5">Fragments de bonheur</h2>
+    <div class="row g-4">
+        <div class="col-md-4 col-6 text-center">
+            <div class="polaroid" style="transform: rotate(-2deg);">
+                <img src="images/m1.jpeg">
+                <p>Ton sourire magicien ✨</p>
+            </div>
         </div>
-    </div>
-
-    <div class="memory-wrap">
-        <div class="memory-img"><img src="images/m2.jpeg"></div>
-        <div class="memory-info">
-            <h3>Harmonie</h3>
-            <p>Être avec toi, c'est comme trouver le silence parfait au milieu du chaos. 💜</p>
+        <div class="col-md-4 col-6 text-center">
+            <div class="polaroid" style="transform: rotate(2deg);">
+                <img src="images/m2.jpeg">
+                <p>À jamais précieux 💜</p>
+            </div>
         </div>
-    </div>
-
-    <div class="memory-wrap">
-        <div class="memory-img"><img src="images/m3.jpeg"></div>
-        <div class="memory-info">
-            <h3>Lumière</h3>
-            <p>Tu illumines mes journées plus que n'importe quel soleil. ☀️</p>
+        <div class="col-md-4 col-6 text-center">
+            <div class="polaroid" style="transform: rotate(-1deg);">
+                <img src="images/m3.jpeg">
+                <p>Ma plus belle lumière ☀️</p>
+            </div>
         </div>
-    </div>
-
-    <div class="memory-wrap">
-        <div class="memory-img"><img src="images/m4.jpeg"></div>
-        <div class="memory-info">
-            <h3>Poésie</h3>
-            <p>Chaque instant avec toi est une ligne que je n'oublierai jamais. 💕</p>
+        <div class="col-md-4 col-6 text-center">
+            <div class="polaroid" style="transform: rotate(3deg);">
+                <img src="images/m4.jpeg">
+                <p>De la chance pure 💕</p>
+            </div>
+        </div>
+        <div class="col-md-4 col-6 text-center">
+            <div class="polaroid" style="transform: rotate(-3deg);">
+                <img src="images/m5.jpeg">
+                <p>Notre poésie 📸</p>
+            </div>
+        </div>
+        <div class="col-md-4 col-6 text-center">
+            <div class="polaroid" style="transform: rotate(1deg);">
+                <img src="images/m6.jpeg">
+                <p>L'infini nous attend 💜</p>
+            </div>
         </div>
     </div>
 </section>
 
-<div class="text-center py-5">
-    <h2 style="font-family:'Bodoni Moda'; font-size: 5rem; letter-spacing: 20px; opacity: 0.1;">TAQWA</h2>
-    <h2 class="love-final" style="font-family:'Bodoni Moda'; font-size: 3rem; margin-top: -60px; color: var(--soft-violet);">À l'infini</h2>
-</div>
+<section class="text-center py-5">
+    <h2 class="love-final">Love you, Taqwa 💜</h2>
+</section>
 
-<footer>
-    <p>Dédié à Taqwa — Vingt-Deux Ans</p>
-    <p style="font-size: 0.5rem; margin-top: 15px;">By Ramandan Adjassa</p>
+<footer class="text-center">
+    <p>DÉDIÉ À TAQWA — 2026</p>
+    <p style="font-size: 0.6rem;">DESIGNED WITH PASSION BY RAMANDAN ADJASSA</p>
 </footer>
 
 <audio id="music" loop>
@@ -284,55 +296,74 @@
 <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 
 <script>
-    // Ouverture
-    document.getElementById("openGift").addEventListener("click", function(){
-        const screen = document.getElementById("giftScreen");
-        screen.style.transition = "1.5s cubic-bezier(0.8, 0, 0.2, 1)";
-        screen.style.transform = "scale(1.5)";
-        screen.style.opacity = "0";
-        setTimeout(() => {
-            screen.style.display = "none";
-            document.getElementById("music").play();
-            writeText();
-            confetti({ particleCount: 150, spread: 70, origin: { y: 0.6 }, colors: ['#7b2cbf', '#ffffff'] });
-        }, 1000);
-    });
+// Ouverture Cadeau
+document.getElementById("openGift").addEventListener("click", function(){
+    document.getElementById("giftScreen").style.transition = "1.5s";
+    document.getElementById("giftScreen").style.opacity = "0";
+    setTimeout(() => {
+        document.getElementById("giftScreen").style.display = "none";
+        document.getElementById("music").play();
+        writeText();
+        confetti({ particleCount: 150, spread: 70, origin: { y: 0.6 }, colors: ['#7b2cbf', '#c77dff', '#ffffff'] });
+    }, 1500);
+});
 
-    // Texte progressif
-    const fullText = `Taqwa, en ce jour unique de tes 22 ans, je t'offre ces quelques pixels chargés de toute mon affection. Tu es la plus belle chose qui me soit arrivée. Joyeux anniversaire. 💜`;
-    let i = 0;
-    function writeText(){
-        if(i < fullText.length){
-            document.getElementById("loveText").innerHTML += fullText.charAt(i);
-            i++;
-            setTimeout(writeText, 40);
-        }
+// Texte auto-écrit avec finesse
+const fullText = `Taqwa, depuis que tu as croisé mon chemin, le temps semble avoir pris une autre dimension. Chaque sourire que tu m'offres est une preuve que la beauté existe vraiment. En ce jour de tes 22 ans, je ne te souhaite pas seulement un joyeux anniversaire, je te promets que chaque jour sera une célébration de ce que tu es. Joyeux anniversaire, mon cœur 💜`;
+let index = 0;
+function writeText(){
+    if(index < fullText.length){
+        document.getElementById("loveText").innerHTML += fullText.charAt(index);
+        index++;
+        setTimeout(writeText, 35);
     }
+}
 
-    // Lettres
-    function showLetter(n){
-        const letters = {
-            1: "Merci de rendre le monde plus doux simplement en y étant.",
-            2: "Je te choisis aujourd'hui, demain, et pour chaque année qui suivra.",
-            3: "Tu es ma source de lumière préférée."
-        };
-        const box = document.getElementById("letterContent");
-        box.style.display = "block";
-        box.innerHTML = `<p>${letters[n]}</p>`;
-        box.scrollIntoView({ behavior: 'smooth' });
-    }
+// Lettres
+function showLetter(n){
+    const letters = {
+        1: "Merci d'exister, Taqwa. Tu es l'équilibre de ma vie.",
+        2: "Le futur est une promesse que nous écrirons ensemble.",
+        3: "Tu es la lumière qui ne s'éteint jamais."
+    };
+    const box = document.getElementById("letterContent");
+    box.style.display = "block";
+    box.innerHTML = `<p>${letters[n]}</p>`;
+}
 
-    // Countdown
-    const bday = new Date("2026-03-28 00:00:00").getTime();
-    setInterval(function(){
-        const now = new Date().getTime();
-        const d = bday - now;
-        const days = Math.floor(d / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((d % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((d % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((d % (1000 * 60)) / 1000);
-        document.getElementById("countdown").innerHTML = `${days}D / ${hours}H / ${minutes}M / ${seconds}S`;
-    }, 1000);
+// Countdown
+const birthday = new Date("2026-03-28 00:00:00").getTime();
+setInterval(function(){
+    const now = new Date().getTime();
+    const distance = birthday - now;
+    const d = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const h = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const m = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const s = Math.floor((distance % (1000 * 60)) / 1000);
+    document.getElementById("countdown").innerHTML = `${d}j : ${h}h : ${m}m : ${s}s`;
+}, 1000);
+
+// Coeurs délicats
+function createHeart(){
+    const heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerHTML = "💜";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.bottom = "-20px";
+    heart.style.fontSize = (Math.random() * 10 + 10) + "px";
+    heart.style.animation = `float ${Math.random() * 3 + 4}s linear forwards`;
+    document.body.appendChild(heart);
+    setTimeout(() => heart.remove(), 5000);
+}
+setInterval(createHeart, 600);
+
+// Animation flottante des cœurs
+const style = document.createElement('style');
+style.innerHTML = `@keyframes float { 
+    to { transform: translateY(-110vh) rotate(360deg); opacity: 0; } 
+}`;
+document.head.appendChild(style);
+
 </script>
 
 </body>
