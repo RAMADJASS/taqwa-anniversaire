@@ -186,6 +186,21 @@
             letter-spacing: 2px;
         }
 
+        #result{
+margin-top:40px;
+font-size:24px;
+}
+
+.ring{
+font-size:80px;
+animation:pop 0.6s ease;
+}
+
+@keyframes pop{
+0%{transform:scale(0);}
+100%{transform:scale(1);}
+}
+
     </style>
 </head>
 
@@ -279,12 +294,27 @@
         </div>
     </div>
 </section>
-
 <section class="text-center py-5">
-    <h2 class="love-final">Love you, Taqwa 💜
 
-        ALORS VEUX TU SORTIR AVEC MOI ?
-    </h2>
+<h2 class="love-final">
+Love you, Taqwa 💜 <br><br>
+Alors… veux-tu sortir avec moi ?
+</h2>
+
+<div class="mt-4">
+
+<button class="btn btn-success me-3" onclick="sayYes()">
+Oui 💜
+</button>
+
+<button id="noBtn" class="btn btn-danger" onmouseover="moveNo()">
+Non 😅
+</button>
+
+</div>
+
+<div id="result" class="mt-5"></div>
+
 </section>
 
 <footer class="text-center">
@@ -367,7 +397,44 @@ style.innerHTML = `@keyframes float {
 }`;
 document.head.appendChild(style);
 
+
+// OUI
+
+function sayYes(){
+
+document.getElementById("result").innerHTML = `
+<div class="ring">💍</div>
+<p style="font-size:28px; color:#7b2cbf; margin-top:15px;">
+Yeeeees 😍💜 Tu viens de faire de moi le plus heureux !
+</p>
+`;
+
+confetti({
+particleCount:400,
+spread:150,
+origin:{y:0.6}
+});
+
+}
+
+
+// NON qui fuit 😂
+
+function moveNo(){
+
+const btn = document.getElementById("noBtn");
+
+const x = Math.random() * 300 - 150;
+const y = Math.random() * 200 - 100;
+
+btn.style.position = "relative";
+btn.style.left = x + "px";
+btn.style.top = y + "px";
+
+}
 </script>
+
+
 
 </body>
 </html>
