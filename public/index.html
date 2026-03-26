@@ -9,6 +9,23 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:italic,wght@400;700&display=swap" rel="stylesheet">
 
     <style>
+
+        #loveText {
+    text-align: justify;
+    text-justify: inter-word;
+    border-left: 2px solid var(--soft-violet);
+    padding-left: 20px;
+    font-style: italic;
+}
+
+.gallery-item {
+    filter: brightness(0.8);
+    transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+.gallery-item:hover {
+    filter: brightness(1.1);
+    transform: translateY(-10px);
+}
         :root {
             --dark: #0a0118;
             --violet: #7b2cbf;
